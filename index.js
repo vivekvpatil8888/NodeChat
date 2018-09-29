@@ -1,15 +1,13 @@
 //following will extract the dependencies and include 
 var express = require('express');
 
-var socket = require('socket.io');
+var socketIO = require('socket.io');
 
-var app = express();
+const PORT = process.env.PORT || 8000
 
-var port = process.env.PORT || 8000
-
-var server = app.listen(port, function() {
-
-    console.log("The server is listening on the port 8000");
+const server = express()
+    .listen(PORT, ()=> {
+    console.log(`The server is listening on the port ${PORT}`);
 });
 
 
@@ -17,12 +15,9 @@ app.use(express.static('public'));
 
 //making socket connection
 
-var io = socket(server); //creates connection to server
-io.configure(function () { 
-    io.set("transports", ["xhr-polling"]); 
-    io.set("polling duration", 10); 
-  });
- 
+const io = socketIO(server);
+
+
 //when connection is done call following function.
 //
 io.on('connection', function(socket) {

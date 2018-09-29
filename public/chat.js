@@ -1,7 +1,7 @@
 //client side code
 
  
-socket = new io.Socket(); 
+var socket = io();
 
 var message = document.getElementById("message");
 
