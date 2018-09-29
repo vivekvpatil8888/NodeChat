@@ -18,7 +18,11 @@ app.use(express.static('public'));
 //making socket connection
 
 var io = socket(server); //creates connection to server
-
+io.configure(function () { 
+    io.set("transports", ["xhr-polling"]); 
+    io.set("polling duration", 10); 
+  });
+ 
 //when connection is done call following function.
 //
 io.on('connection', function(socket) {
