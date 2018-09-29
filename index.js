@@ -6,12 +6,14 @@ var socketIO = require('socket.io');
 const PORT = process.env.PORT || 8000
 
 const server = express()
+
+    .use(express.static('public'))
     .listen(PORT, ()=> {
     console.log(`The server is listening on the port ${PORT}`);
 });
 
 
-app.use(express.static('public'));
+//app.use(express.static('public'));
 
 //making socket connection
 
