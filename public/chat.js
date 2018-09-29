@@ -1,7 +1,11 @@
 //client side code
 
-
-var socket = io.connect("http://localhost:8000");
+io.configure(function () { 
+    io.set("transports", ["xhr-polling"]); 
+    io.set("polling duration", 10); 
+  });
+  
+socket = new io.Socket(); 
 
 var message = document.getElementById("message");
 

@@ -5,7 +5,9 @@ var socket = require('socket.io');
 
 var app = express();
 
-var server = app.listen(process.env.PORT || 8000, function() {
+var port = process.env.PORT || 8000
+
+var server = app.listen(port, function() {
 
     console.log("The server is listening on the port 8000");
 });
